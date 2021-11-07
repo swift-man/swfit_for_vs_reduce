@@ -43,20 +43,5 @@ func `for`() {
     print("for timeInterval : \(timeInterval), sum :\(sum)")
 }
 
-func map() {
-    print(#function)
-    // Perform operation 100,000 times
-    let start = DispatchTime.now()
-    var sum: Float = 0
-//    for _ in 0 ..< 100 { // hard test
-        sum = array.reduce(0, { $0 + $1 })
-//    }
-    // Log the elapsed time
-    let end = DispatchTime.now()   // <<<<<<<<<<   end time
-    let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds // <<<<< Difference in nano seconds (UInt64)
-    let timeInterval = Double(nanoTime) / 1_000_000_000 // Technically could overflow for long running tests
-    print("reduce timeInterval : \(timeInterval), sum :\(sum)")
-}
-
 reduce()
 `for`()
